@@ -11,6 +11,13 @@ async function createUser(req, res) {
   res.json(user);
 }
 
+async function getUser(req, res) {
+  const { id } = req.params;
+  const user = await User.findOne({ where: { id } });
+  res.json(user);
+}
+
 module.exports = {
   createUser,
+  getUser,
 };
